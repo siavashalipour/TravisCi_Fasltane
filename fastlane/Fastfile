@@ -12,26 +12,34 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
+default_platform :ios
 
-default_platform(:ios)
-
-platform :ios do
-  desc "Runs all the tests"
-  lane :test do
-    scan(
-    scheme: "TravisCI_Fastlane",
-    code_coverage: true
-    )
-  end
-
-  desc "Runs coverage"
-  lane :coverage do
-    test
-    slather(
-    travis: true,
-    scheme: "TravisCI_Fastlane",
-    coveralls: true,
-    proj: "TravisCI_Fastlane.xcodeproj"
-    )
-  end
+lane :beta do
+  build_app(export_method: "development")
+  # crashlytics(
+  #   api_token: "b6bff7f9d892076fe30d9fc608e2c42dc9376453",
+  #   build_secret: "a04a63ce0bf7d1ee9858277a29bfea6cd6ca7440dcb00031c456a1d49c791341"
+  # )
 end
+# default_platform(:ios)
+#
+# platform :ios do
+#   desc "Runs all the tests"
+#   lane :test do
+#     scan(
+#     scheme: "TravisCI_Fastlane",
+#     code_coverage: true
+#     )
+#   end
+#
+#   desc "Runs coverage"
+#   lane :coverage do
+#     test
+#     slather(
+#     travis: true,
+#     scheme: "TravisCI_Fastlane",
+#     coveralls: true,
+#     proj: "TravisCI_Fastlane.xcodeproj"
+#     )
+#   end
+# end
