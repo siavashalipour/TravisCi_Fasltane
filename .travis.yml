@@ -1,6 +1,6 @@
 language: swift
 script:
-– fastlane ios coverage
+- ./fastlane/travis.sh
 
 # language: swift
 # xcode_project: TravisCI_Fastlane.xcodeproj # path to your xcodeproj folder
