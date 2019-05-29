@@ -19,7 +19,7 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     scan(
-    scheme: TravisCI_Fastlane,
+    scheme: "TravisCI_Fastlane",
     code_coverage: true
     )
   end
@@ -29,7 +29,7 @@ platform :ios do
     test
     slather(
     travis: true,
-    scheme: TravisCI_Fastlane,
+    scheme: "TravisCI_Fastlane",
     coveralls: true,
     proj: "TravisCI_Fastlane.xcodeproj"
     )
